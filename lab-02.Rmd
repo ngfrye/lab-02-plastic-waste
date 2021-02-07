@@ -100,7 +100,8 @@ ggplot(data = plastic_waste,
 Remove this text, and add your answer for Exercise 8 here.
 
 ```{r recreate-viz}
-ggplot(data = plastic_waste,
+plastic_waste_filtered <- filter(plastic_waste, plastic_waste_per_cap < 3)
+ggplot(data = plastic_waste_filtered,
        mapping = aes(x = coastal_pop / total_pop, 
                      y = plastic_waste_per_cap)) +
   geom_point(mapping = aes(color = continent)) +
