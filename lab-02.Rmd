@@ -53,32 +53,46 @@ ggplot(data = plastic_waste,
   geom_violin()
 ```
 
+The violin plots allow you to see the density plot, which isn't in a regular box plot. The median and upper and lower quartiles of each distribution are more readily apparent in a regular box plot, since they are marked with distinct lines.
+
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
+There seems to be a slightly positive linear relationship between mismanaged plastic waste per capita and plastic waste per capita.
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = mismanaged_plastic_waste_per_cap, 
+                     y = plastic_waste_per_cap)) +
+  geom_point()
 ```
 
 ### Exercise 6
 
-Remove this text, and add your answer for Exercise 6 here.
+Europe and North America seems to have a stronger relationship between plastic waste and mismanaged plastic waste, while Africa seems to have a weaker relationship between the two.
 
 ```{r plastic-waste-mismanaged-continent}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = mismanaged_plastic_waste_per_cap, 
+                     y = plastic_waste_per_cap, color = continent)) +
+  geom_point()
 ```
 
 ### Exercise 7
 
-Remove this text, and add your answer for Exercise 7 here.
+I wouldn't really say either variable looks more strongly linearly associated with plastic waste. Maybe the coastal population is slightly more so.
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = total_pop, 
+                     y = plastic_waste_per_cap, color = continent)) +
+  geom_point()
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = coastal_pop, 
+                     y = plastic_waste_per_cap, color = continent)) +
+  geom_point()
 ```
 
 ### Exercise 8
@@ -86,5 +100,8 @@ Remove this text, and add your answer for Exercise 7 here.
 Remove this text, and add your answer for Exercise 8 here.
 
 ```{r recreate-viz}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = coastal_pop / total_pop, 
+                     y = plastic_waste_per_cap, color = continent)) +
+  geom_point(scatter.smooth())
 ```
