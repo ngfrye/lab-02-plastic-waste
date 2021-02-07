@@ -37,18 +37,20 @@ ggplot(data = plastic_waste,
   geom_density(alpha = .2)
 ```
 
-Color and fill are defined using the aesthetics of the plot because we wanted them to be based on the value of variables in the dataset, whereas we wanted alpha to just be a property of the plot and not determined by the data, so we made it a characteristic of the plotting geom.
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+Color and fill are defined using the aesthetics of the plot because we wanted them to be based on the value of variables in the dataset, whereas we wanted alpha to just be a property of the plot and not determined by the data, so we made it a characteristic of the plotting geom.
 
 ### Exercise 4
 
 Remove this text, and add your answer for Exercise 4 here.
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = continent, 
+                     y = plastic_waste_per_cap)) +
+  geom_violin()
 ```
 
 ### Exercise 5
