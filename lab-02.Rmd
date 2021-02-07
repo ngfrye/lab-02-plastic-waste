@@ -19,7 +19,7 @@ plastic_waste <- read_csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-
+The continents seems to be fairly similar in their plastic waste per capita. North America has one or two outliers of countries with much higher high plastic waste per capita. 
 
 ```{r plastic-waste-continent}
 ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
@@ -30,8 +30,14 @@ ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# insert code here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     color = continent, 
+                     fill = continent)) +
+  geom_density(alpha = .2)
 ```
+
+Color and fill are defined using the aesthetics of the plot because we wanted them to be based on the value of variables in the dataset, whereas we wanted alpha to just be a property of the plot and not determined by the data, so we made it a characteristic of the plotting geom.
 
 ### Exercise 3
 
